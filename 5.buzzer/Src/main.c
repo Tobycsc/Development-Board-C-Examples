@@ -63,8 +63,12 @@ void SystemClock_Config(void);
 #define MAX_BUZZER_PWM      20000
 #define MIN_BUZZER_PWM      10000
 
+uint8_t a=1,b; 
+
+uint16_t music_steps[3][7] = {{262,294,330,349,392,440,494}, {523,587,659,698,784,880,988}, {1046,1175,1318,1397,1568,1760,1976}};
+
 uint16_t psc = 0;
-uint16_t pwm = MIN_BUZZER_PWM;
+uint16_t pwm = 0;
  
 /* USER CODE END 0 */
 
@@ -114,21 +118,99 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-        
-        pwm++;
-        psc++;
-        
-        if(pwm > MAX_BUZZER_PWM)
-        {
-            pwm = MIN_BUZZER_PWM;
-        }
-        if(psc > MAX_PSC)
-        {
-            psc = 0;
-        }
+        psc=42000/music_steps[a][5];
         buzzer_on(psc, pwm);
-        HAL_Delay(1);
+        HAL_Delay(800);
+        psc=42000/music_steps[a][4];
+        buzzer_on(psc, pwm);
+        HAL_Delay(200);
+        psc=42000/music_steps[a][2];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+        psc=42000/music_steps[a][1];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+        psc=42000/music_steps[a][0];
+        buzzer_on(psc, pwm);
+        HAL_Delay(1300);
+		
+        buzzer_on(psc, 0);
+        HAL_Delay(550);		
+		
+        psc=42000/music_steps[a][2];
+        buzzer_on(psc, pwm);
+        HAL_Delay(800);
+        psc=42000/music_steps[a][1];
+        buzzer_on(psc, pwm);
+        HAL_Delay(200);
+        psc=42000/music_steps[a][0];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+        psc=42000/music_steps[0][5];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+        psc=42000/music_steps[0][4];
+        buzzer_on(psc, pwm);
+        HAL_Delay(1300);
+				
+				buzzer_on(psc, 0);
+        HAL_Delay(550);	
+				
+				
+        psc=42000/music_steps[0][4];
+        buzzer_on(psc, pwm);
+        HAL_Delay(750);
+        psc=42000/music_steps[0][5];
+        buzzer_on(psc, pwm);
+        HAL_Delay(250);
+        psc=42000/music_steps[0][4];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+        psc=42000/music_steps[0][5];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+				
 
+				
+        psc=42000/music_steps[a][0];
+        buzzer_on(psc, pwm);
+        HAL_Delay(250);
+				buzzer_on(psc, 0);
+        HAL_Delay(25);	
+        psc=42000/music_steps[a][0];
+        buzzer_on(psc, pwm);
+        HAL_Delay(450);		
+				
+        psc=42000/music_steps[a][1];
+        buzzer_on(psc, pwm);
+        HAL_Delay(350);
+        psc=42000/music_steps[a][2];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);				
+        psc=42000/music_steps[a][4];
+        buzzer_on(psc, pwm);
+        HAL_Delay(500);
+        psc=42000/music_steps[a][5];
+        buzzer_on(psc, pwm);
+        HAL_Delay(700);		
+        psc=42000/music_steps[a][4];
+        buzzer_on(psc, pwm);
+        HAL_Delay(250);	
+        psc=42000/music_steps[a][2];
+        buzzer_on(psc, pwm);
+        HAL_Delay(250);				
+        psc=42000/music_steps[a][1];
+        buzzer_on(psc, pwm);
+        HAL_Delay(250);
+        psc=42000/music_steps[a][0];
+        buzzer_on(psc, pwm);
+        HAL_Delay(450);		
+        psc=42000/music_steps[a][1];
+        buzzer_on(psc, pwm);
+        HAL_Delay(1000);	
+
+				buzzer_on(psc, 0);
+        HAL_Delay(1500);	
   }
   /* USER CODE END 3 */
 }
